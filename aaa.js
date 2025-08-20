@@ -1,4 +1,4 @@
-<script>
+
         // Dados das receitas
         const recipes = {
             1: {
@@ -104,7 +104,7 @@
                         const li = document.createElement('li');
                         li.textContent = ingredient;
                         ingredientsList.appendChild(li);
-                    });<script>
+                    });
         // Dados das receitas
         const recipes = {
             1: {
