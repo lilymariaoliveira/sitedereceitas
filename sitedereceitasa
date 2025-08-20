@@ -720,32 +720,7 @@
                     "Sirva quente com mel, frutas ou maple syrup."
                 ],
                 tips: "Para panquecas mais fofas, não misture demais a massa. Alguns grumos são normais."
-            },
-            2: {
-                title: "Pesto Caseiro",
-                time: "40 min",
-                difficulty: "Médio",
-                servings: "4 porções",
-                image: "https://placehold.co/800x500",
-                ingredients: [
-                    "2 xícaras de folhas de manjericão fresco",
-                    "1/2 xícara de queijo parmesão ralado",
-                    "1/2 xícara de azeite de oliva",
-                    "1/3 xícara de pinoli (ou nozes)",
-                    "3 dentes de alho",
-                    "Sal e pimenta a gosto"
-                ],
-                instructions: [
-                    "Lave bem as folhas de manjericão e seque com papel toalha.",
-                    "No processador de alimentos, adicione o alho e as nozes, processe até triturar.",
-                    "Adicione o manjericão e processe novamente.",
-                    "Com o processador ligado, adicione o azeite em fio.",
-                    "Adicione o queijo parmesão e tempere com sal e pimenta.",
-                    "Misture o pesto ao macarrão cozido al dente.",
-                    "Se desejar, adicione um pouco da água do cozimento do macarrão para ajustar a consistência."
-                ],
-                tips: "Para preservar a cor vibrante do pesto, adicione um pouco de suco de limão. Guarde na geladeira com uma camada de azeite por cima."
-            },
+            
             3: {
                 title: "Brownie Irresistível",
                 time: "50 min",
