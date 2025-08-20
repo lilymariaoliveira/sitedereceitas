@@ -9,23 +9,44 @@
       { <header>
         <div class="container header-content">
             <div class="logo">
-                <span class="logo-icon"></span>
-                <span>Cheffie</span>
+                <span class="logo-icon">🍳</span>
+                <span>Chef Digital</span>
             </div>
             <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Receitas</a></li>
+                    <li><a href="#">Categorias</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-content"
+        <div class="hero-content">
+            <h1>Descubra o Prazer de Cozinhar</h1>
+            <p>Mais de 1.000 receitas testadas e aprovadas para todos os níveis de habilidade</p>
+        </div>
+    </section>
 
+    <div class="container">
+        <div class="search-bar fade-in">
+            <form class="search-form">
+                <input type="text" placeholder="Busque por receitas, ingredientes ou cozinheiros..." required>
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
 
-
-
-
-       
+        <div class="filters">
+            <button class="filter-btn active">Todas</button>
+            <button class="filter-btn">Entradas</button>
+            <button class="filter-btn">Pratos Principais</button>
+            <button class="filter-btn">Sobremesas</button>
+            <button class="filter-btn">Saudáveis</button>
+            <button class="filter-btn">Rápidas</button>
+        </div>
 
         <div class="recipes-grid">
             <!-- Receita 1 -->
@@ -71,7 +92,27 @@
                         <span><i class="far fa-clock"></i> 50 min</span>
                         <span class="recipe-difficulty easy">Fácil</span>
                     </div>
-                   
+                    <p>Brownie de chocolate intenso com textura perfeita.</p>
+                    <a href="#" class="view-recipe" data-recipe="3">Ver Receita</a>
+                </div>
+            </div>
+
+            <!-- Receita 4 -->
+            <div class="recipe-card fade-in">
+                <div class="recipe-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/52e035a9-699c-4255-a85b-699c83c6dd9c.png" alt="Risoto cremoso de cogumelos com folhas de salsa e raspas de parmesão" />
+                </div>
+                <div class="recipe-info">
+                    <h3>Risoto de Cogumelos</h3>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 55 min</span>
+                        <span class="recipe-difficulty medium">Médio</span>
+                    </div>
+                    <p>Risoto cremoso com uma variedade de cogumelos frescos.</p>
+                    <a href="#" class="view-recipe" data-recipe="4">Ver Receita</a>
+                </div>
+            </div>
+
             <!-- Receita 5 -->
             <div class="recipe-card fade-in">
                 <div class="recipe-image">
@@ -110,7 +151,7 @@
         <div class="container footer-content">
             <div class="footer-column">
                 <h3>Sobre Nós</h3>
-                <p>Cheffie é um projeto dedicado a democratizar a culinária.</p>
+                <p>Chef Digital é um projeto dedicado a democratizar a culinária caseira com receitas testadas e técnicas acessíveis.</p>
             </div>
             <div class="footer-column">
                 <h3>Links Úteis</h3>
@@ -124,8 +165,8 @@
             <div class="footer-column">
                 <h3>Contato</h3>
                 <ul>
-                    <li>Email: contato@cheffie.com</li>
-                    <li>Telefone: (11) 11111111111</li>
+                    <li>Email: contato@chefdigital.com</li>
+                    <li>Telefone: (11) 98765-4321</li>
                     <li class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -136,7 +177,7 @@
             </div>
         </div>
         <div class="container copyright">
-            <p> Cheffie.</p>
+            <p>© 2023 Chef Digital. Todos os direitos reservados.</p>
         </div>
     </footer>
 
