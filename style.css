@@ -12,7 +12,7 @@
             line-height: 1.6;
         }
 
-        /* Layout Principal */
+        
         .container {
             width: 90%;
             max-width: 1200px;
@@ -20,7 +20,7 @@
             padding: 20px;
         }
 
-        /* Cabeçalho */
+        
         header {
             background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
@@ -65,7 +65,7 @@
             opacity: 0.8;
         }
 
-        /* Hero Section */
+       
         .hero {
             background-color: #aaa;
             height: 400px;
@@ -143,7 +143,7 @@
             background-color: #ff5252;
         }
 
-        /* Filtros */
+        
         .filters {
             display: flex;
             justify-content: center;
@@ -168,7 +168,7 @@
             color: white;
         }
 
-        /* Grade de Receitas */
+       
         .recipes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -261,7 +261,7 @@
             background-color: #ff5252;
         }
 
-        /* Rodapé */
+        
         footer {
             background-color: var(--dark);
             color: white;
@@ -320,7 +320,7 @@
             color: #aaa;
         }
 
-        /* Responsividade */
+        
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -376,7 +376,7 @@
             }
         }
 
-        /* Modal */
+        
         .modal {
             display: none;
             position: fixed;
@@ -457,7 +457,7 @@
             margin-bottom: 8px;
         }
 
-        /* Animações */
+        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
