@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheffie</title>
+    <style>
+        /* Reset e Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --dark: #292f36;
+            --light: #f7fff7;
+            --accent: #ff9f1c;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Layout Principal */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('b3431c5-ac3e-4bf9-https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dadeb-3fdd3d43c686.png') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Barra de Busca */
+        .search-bar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            margin: -40px auto 40px;
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .search-form {
+            display: flex;
+        }
+
+        .search-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+        }
+
+        .search-form button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-form button:hover {
+            background-color: #ff5252;
+        }
+
+        /* Filtros */
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 1px solid var(--secondary);
+            color: var(--dark);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        /* Grade de Receitas */
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 3rem;
+        }
+
+        .recipe-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .recipe-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .recipe-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .recipe-card:hover .recipe-image img {
+            transform: scale(1.05);
+        }
+
+        .recipe-info {
+            padding: 20px;
+        }
+
+        .recipe-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .recipe-difficulty {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .easy {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .medium {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .hard {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .view-recipe {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .view-recipe:hover {
+            background-color: #ff5252;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .hero {
+                height: 300px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .search-form input {
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+
+            .search-form button {
+                border-radius: 4px;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 250px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .recipes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
+        .modal-recipe-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .recipe-details h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .recipe-meta-details {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .recipe-section {
+            margin-bottom: 20px;
+        }
+
+        .recipe-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 5px;
+        }
+
+        .ingredients-list,
+        .instructions-list {
+            padding-left: 20px;
+        }
+
+        .ingredients-list li,
+        .instructions-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span class="logo-icon">🍳</span>
+                <span>Chef Digital</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Receitas</a></li>
+                    <li><a href="#">Categorias</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Descubra o Prazer de Cozinhar</h1>
+            <p>Mais de 1.000 receitas testadas e aprovadas para todos os níveis de habilidade</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="search-bar fade-in">
+            <form class="search-form">
+                <input type="text" placeholder="Busque por receitas, ingredientes ou cozinheiros..." required>
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active">Todas</button>
+            <button class="filter-btn">Entradas</button>
+            <button class="filter-btn">Pratos Principais</button>
+            <button class="filter-btn">Sobremesas</button>
+            <button class="filter-btn">Saudáveis</button>
+            <button class="filter-btn">Rápidas</button>
+        </div>
+
+        <div class="recipes-grid">
+            <!-- Receita 1 -->
+            <div class="recipe-card fade-in">
+                <div class="recipe-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3f817d95-c63f-43ef-92e1-f7b4e4147f85.png" alt="Panquecas fofas e douradas com frutas frescas e mel decorando o prato" />
+                </div>
+                <div class="recipe-info">
+                    <h3>Panquecas Perfeitas</h3>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 25 min</span>
+                        <span class="recipe-difficulty easy">Fácil</span>
+                    </div>
+                    <p>Café da manhã perfeito com essas panquecas fofinhas e saborosas.</p>
+                    <a href="#" class="view-recipe" data-recipe="1">Ver Receita</a>
+                </div>
+            </div>
+
+            <!-- Receita 2 -->
+            <div class="recipe-card fade-in">
+                <div class="recipe-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/463abb17-99ee-4949-a55a-71c10dde0ae6.png" alt="Macarrão ao molho pesto com tomates cereja e folhas de manjericão fresco" />
+                </div>
+                <div class="recipe-info">
+                    <h3>Pesto Caseiro</h3>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 40 min</span>
+                        <span class="recipe-difficulty medium">Médio</span>
+                    </div>
+                    <p>Macarrão com pesto de manjericão fresco, alho e pinoli.</p>
+                    <a href="#" class="view-recipe" data-recipe="2">Ver Receita</a>
+                </div>
+            </div>
+
+            <!-- Receita 3 -->
+            <div class="recipe-card fade-in">
+                <div class="recipe-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c1226c67-e8db-4e3f-9f97-8bd6511083e3.png" alt="Brownie de chocolate derretido com nozes e uma bola de sorvete de baunilha" />
+                </div>
+                <div class="recipe-info">
+                    <h3>Brownie Irresistível</h3>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 50 min</span>
+                        <span class="recipe-difficulty easy">Fácil</span>
+                    </div>
+                    <p>Brownie de chocolate intenso com textura perfeita.</p>
+                    <a href="#" class="view-recipe" data-recipe="3">Ver Receita</a>
+                </div>
+            </div>
+
+            <!-- Receita 4 -->
+            <div class="recipe-card fade-in">
+                <div class="recipe-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/52e035a9-699c-4255-a85b-699c83c6dd9c.png" alt="Risoto cremoso de cogumelos com folhas de salsa e raspas de parmesão" />
+                </div>
+                <div class="recipe-info">
+                    <h3>Risoto de Cogumelos</h3>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 55 min</span>
+                        <span class="recipe-difficulty medium">Médio</span>
+                    </div>
+                    <p>Risoto cremoso com uma variedade de cogumelos frescos.</p>
+                    <a href="#" class="view-recipe" data-recipe="4">Ver Receita</a>
+                </div>
+            </div>
+
+            <!-- Receita 5 -->
+            <div class="recipe-card fade-in">
+                <div class="recipe-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3201cad8-d7e2-492d-82a6-4ba8c8e79a22.png" alt="Salada colorida com folhas verdes, quinoa, abacate, tomate e sementes de abóbora" />
+                </div>
+                <div class="recipe-info">
+                    <h3>Salada Power</h3>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 20 min</span>
+                        <span class="recipe-difficulty easy">Fácil</span>
+                    </div>
+                    <p>Salada nutritiva com superalimentos para uma refeição leve.</p>
+                    <a href="#" class="view-recipe" data-recipe="5">Ver Receita</a>
+                </div>
+            </div>
+
+            <!-- Receita 6 -->
+            <div class="recipe-card fade-in">
+                <div class="recipe-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8c17ee0b-e33e-4eb1-b08d-a412fee44b7b.png" alt="Peixe grelhado com crosta de ervas acompanhado de legumes assados" />
+                </div>
+                <div class="recipe-info">
+                    <h3>Peixe Grelhado</h3>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 35 min</span>
+                        <span class="recipe-difficulty hard">Avançado</span>
+                    </div>
+                    <p>Peixe branco grelhado com crosta crocante de ervas.</p>
+                    <a href="#" class="view-recipe" data-recipe="6">Ver Receita</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>Sobre Nós</h3>
+                <p>Chef Digital é um projeto dedicado a democratizar a culinária caseira com receitas testadas e técnicas acessíveis.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Trabalhe Conosco</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contato</h3>
+                <ul>
+                    <li>Email: contato@chefdigital.com</li>
+                    <li>Telefone: (11) 98765-4321</li>
+                    <li class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>© 2023 Chef Digital. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Receita -->
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f0d5f060-666b-45af-a0c2-83556ae2e15e.png" alt="Imagem detalhada da receita selecionada" class="modal-recipe-image" />
+            <div class="recipe-details">
+                <h2 id="modal-recipe-title">Título da Receita</h2>
+                <div class="recipe-meta-details">
+                    <div><i class="fas fa-clock"></i> <span id="modal-recipe-time">30 min</span></div>
+                    <div><i class="fas fa-utensils"></i> <span id="modal-recipe-difficulty">Fácil</span></div>
+                    <div><i class="fas fa-portion"></i> <span id="modal-recipe-servings">4 porções</span></div>
+                </div>
+                <div class="recipe-section">
+                    <h3>Ingredientes</h3>
+                    <ul class="ingredients-list" id="modal-recipe-ingredients">
+                        <!-- Preenchido pelo JavaScript -->
+                    </ul>
+                </div>
+                <div class="recipe-section">
+                    <h3>Modo de Preparo</h3>
+                    <ol class="instructions-list" id="modal-recipe-instructions">
+                        <!-- Preenchido pelo JavaScript -->
+                    </ol>
+                </div>
+                <div class="recipe-section">
+                    <h3>Dicas</h3>
+                    <p id="modal-recipe-tips">Dicas úteis para melhorar sua receita.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dados das receitas
+        const recipes = {
+            1: {
+                title: "Panquecas Perfeitas",
+                time: "25 min",
+                difficulty: "Fácil",
+                servings: "4 porções",
+                image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/81c0e697-f2e2-4631-bc6e-e309020f548a.png",
+                ingredients: [
+                    "1 xícara de farinha de trigo",
+                    "1 colher de sopa de açúcar",
+                    "2 colheres de chá de fermento em pó",
+                    "1/2 colher de chá de sal",
+                    "1 ovo",
+                    "1 xícara de leite",
+                    "2 colheres de sopa de manteiga derretida",
+                    "1 colher de chá de essência de baunilha"
+                ],
+                instructions: [
+                    "Misture os ingredientes secos em uma tigela grande.",
+                    "Noutra tigela, bata o ovo, leite, manteiga e baunilha.",
+                    "Despeje a mistura líquida sobre os secos e misture até incorporar.",
+                    "Aqueça uma frigideira antiaderente em fogo médio.",
+                    "Despeje pequenas porções da massa na frigideira.",
+                    "Vire quando aparecerem bolhas na superfície.",
+                    "Sirva quente com mel, frutas ou maple syrup."
+                ],
+                tips: "Para panquecas mais fofas, não misture demais a massa. Alguns grumos são normais."
+            
+            3: {
+                title: "Brownie Irresistível",
+                time: "50 min",
+                difficulty: "Fácil",
+                servings: "9 porções",
+                image: "https://placehold.co/800x500",
+                ingredients: [
+                    "200g de chocolate meio amargo",
+                    "150g de manteiga sem sal",
+                    "200g de açúcar",
+                    "3 ovos grandes",
+                    "100g de farinha de trigo",
+                    "30g de cacau em pó",
+                    "1/2 colher de chá de sal",
+                    "100g de nozes picadas (opcional)"
+                ],
+                instructions: [
+                    "Pré-aqueça o forno a 180°C e unte uma forma quadrada.",
+                    "Derreta o chocolate e a manteiga em banho-maria, mexendo até ficar homogêneo.",
+                    "Retire do fogo e adicione o açúcar, misturando bem.",
+                    "Adicione os ovos um a um, batendo bem após cada adição.",
+                    "Peneire a farinha, o cacau e o sal sobre a mistura e incorpore delicadamente.",
+                    "Adicione as nozes se desejar.",
+                    "Despeje na forma e asse por 25-30 minutos.",
+                    "Deixe esfriar antes de cortar."
+                ],
+                tips: "Para um brownie mais úmido, retire do forno quando o palito sair com algumas migalhas úmidas. Para mais firmeza, asse até o palito sair limpo."
+            }
+        };
+
+        // Abrir modal com a receita clicada
+        document.querySelectorAll('.view-recipe').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const recipeId = this.getAttribute('data-recipe');
+                const recipe = recipes[recipeId];
+                
+                if (recipe) {
+                    document.getElementById('modal-recipe-title').textContent = recipe.title;
+                    document.getElementById('modal-recipe-time').textContent = recipe.time;
+                    document.getElementById('modal-recipe-difficulty').textContent = recipe.difficulty;
+                    document.getElementById('modal-recipe-servings').textContent = recipe.servings;
+                    document.getElementById('modal-recipe-tips').textContent = recipe.tips;
+                    document.querySelector('.modal-recipe-image').src = recipe.image;
+                    
+                    const ingredientsList = document.getElementById('modal-recipe-ingredients');
+                    ingredientsList.innerHTML = '';
+                    recipe.ingredients.forEach(ingredient => {
+                        const li = document.createElement('li');
+                        li.textContent = ingredient;
+                        ingredientsList.appendChild(li);
+                    });
