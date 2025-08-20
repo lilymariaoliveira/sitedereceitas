@@ -1,12 +1,4 @@
-  * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-      
-        
-       :root {
+    :root {
             --primary: #ff6b6b;
             --secondary: #4ecdc4;
             --dark: #292f36;
@@ -75,8 +67,8 @@
 
         /* Hero Section */
         .hero {
-            background:
-            height: 400px
+            background: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/db3431c5-ac3e-4bf9-adeb-3fdd3d43c686.png') no-repeat center center/cover;
+            height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -471,6 +463,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-
-
-        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
