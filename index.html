@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Digital - Seu Livro de Receitas Moderno</title>
+
+      { <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span class="logo-icon">🍳</span>
+                <span>Chef Digital</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Receitas</a></li>
+                    <li><a href="#">Categorias</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Descubra o Prazer de Cozinhar</h1>
+            <p>Mais de 1.000 receitas testadas e aprovadas para todos os níveis de habilidade</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="search-bar fade-in">
+            <form class="search-form">
+                <input type="text" placeholder="Busque por receitas, ingredientes ou cozinheiros..." required>
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active">Todas</button>
+            <button class="filter-btn">Entradas</button>
+            <button class="filter-btn">Pratos Principais</button>
+            <button class="filter-btn">Sobremesas</button>
+            <button class="filter-btn">Saudáveis</button>
+            <button class="filter-btn">Rápidas</button>
+        </div>
+
+        <div class="recipes-grid">
+            <!-- Receita 1 -->
+            <div class="recipe-card fade-in">
+                <div class="recipe-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3f817d95-c63f-43ef-92e1-f7b4e4147f85.png" alt="Panquecas fofas e douradas com frutas frescas e mel decorando o prato" />
+                </div>
+                <div class="recipe-info">
+                    <h3>Panquecas Perfeitas</h3>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 25 min</span>
+                        <span class="recipe-difficulty easy">Fácil</span>
+                    </div>
+                    <p>Café da manhã perfeito com essas panquecas fofinhas e saborosas.</p>
+                    <a href="#" class="view-recipe" data-recipe="1">Ver Receita</a>
+                </div>
+            </div>
+
+            <!-- Receita 2 -->
+            <div class="recipe-card fade-in">
+                <div class="recipe-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/463abb17-99ee-4949-a55a-71c10dde0ae6.png" alt="Macarrão ao molho pesto com tomates cereja e folhas de manjericão fresco" />
+                </div>
+                <div class="recipe-info">
+                    <h3>Pesto Caseiro</h3>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 40 min</span>
+                        <span class="recipe-difficulty medium">Médio</span>
+                    </div>
+                    <p>Macarrão com pesto de manjericão fresco, alho e pinoli.</p>
+                    <a href="#" class="view-recipe" data-recipe="2">Ver Receita</a>
+                </div>
+            </div>
+
+            <!-- Receita 3 -->
+            <div class="recipe-card fade-in">
+                <div class="recipe-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c1226c67-e8db-4e3f-9f97-8bd6511083e3.png" alt="Brownie de chocolate derretido com nozes e uma bola de sorvete de baunilha" />
+                </div>
+                <div class="recipe-info">
+                    <h3>Brownie Irresistível</h3>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 50 min</span>
+                        <span class="recipe-difficulty easy">Fácil</span>
+                    </div>
+                    <p>Brownie de chocolate intenso com textura perfeita.</p>
+                    <a href="#" class="view-recipe" data-recipe="3">Ver Receita</a>
+                </div>
+            </div>
+
+            <!-- Receita 4 -->
+            <div class="recipe-card fade-in">
+                <div class="recipe-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/52e035a9-699c-4255-a85b-699c83c6dd9c.png" alt="Risoto cremoso de cogumelos com folhas de salsa e raspas de parmesão" />
+                </div>
+                <div class="recipe-info">
+                    <h3>Risoto de Cogumelos</h3>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 55 min</span>
+                        <span class="recipe-difficulty medium">Médio</span>
+                    </div>
+                    <p>Risoto cremoso com uma variedade de cogumelos frescos.</p>
+                    <a href="#" class="view-recipe" data-recipe="4">Ver Receita</a>
+                </div>
+            </div>
+
+            <!-- Receita 5 -->
+            <div class="recipe-card fade-in">
+                <div class="recipe-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3201cad8-d7e2-492d-82a6-4ba8c8e79a22.png" alt="Salada colorida com folhas verdes, quinoa, abacate, tomate e sementes de abóbora" />
+                </div>
+                <div class="recipe-info">
+                    <h3>Salada Power</h3>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 20 min</span>
+                        <span class="recipe-difficulty easy">Fácil</span>
+                    </div>
+                    <p>Salada nutritiva com superalimentos para uma refeição leve.</p>
+                    <a href="#" class="view-recipe" data-recipe="5">Ver Receita</a>
+                </div>
+            </div>
+
+            <!-- Receita 6 -->
+            <div class="recipe-card fade-in">
+                <div class="recipe-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8c17ee0b-e33e-4eb1-b08d-a412fee44b7b.png" alt="Peixe grelhado com crosta de ervas acompanhado de legumes assados" />
+                </div>
+                <div class="recipe-info">
+                    <h3>Peixe Grelhado</h3>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 35 min</span>
+                        <span class="recipe-difficulty hard">Avançado</span>
+                    </div>
+                    <p>Peixe branco grelhado com crosta crocante de ervas.</p>
+                    <a href="#" class="view-recipe" data-recipe="6">Ver Receita</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>Sobre Nós</h3>
+                <p>Chef Digital é um projeto dedicado a democratizar a culinária caseira com receitas testadas e técnicas acessíveis.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Trabalhe Conosco</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contato</h3>
+                <ul>
+                    <li>Email: contato@chefdigital.com</li>
+                    <li>Telefone: (11) 98765-4321</li>
+                    <li class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>© 2023 Chef Digital. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Receita -->
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <span class="close-modal">&times </span>
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f0d5f060-666b-45af-a0c2-83556ae2e15e.png" alt="Imagem detalhada da receita selecionada" class="modal-recipe-image" />
+            <div class="recipe-details">
+                <h2 id="modal-recipe-title">Título da Receita</h2>
+                <div class="recipe-meta-details">
+                    <div><i class="fas fa-clock"></i> <span id="modal-recipe-time">30 min</span></div>
+                    <div><i class="fas fa-utensils"></i> <span id="modal-recipe-difficulty">Fácil</span></div>
+                    <div><i class="fas fa-portion"></i> <span id="modal-recipe-servings">4 porções</span></div>
+                </div>
+                <div class="recipe-section">
+                    <h3>Ingredientes</h3>
+                    <ul class="ingredients-list" id="modal-recipe-ingredients">
+                        <!-- Preenchido pelo JavaScript -->
+                    </ul>
+                </div>
+                <div class="recipe-section">
+                    <h3>Modo de Preparo</h3>
+                    <ol class="instructions-list" id="modal-recipe-instructions">
+                        <!-- Preenchido pelo JavaScript -->
+                    </ol>
+                </div>
+                <div class="recipe-section">
+                    <h3>Dicas</h3>
+                    <p id="modal-recipe-tips">Dicas úteis para melhorar sua receita.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    }
+
+    
